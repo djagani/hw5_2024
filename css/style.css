@@ -21,6 +21,9 @@
 }
 
 .logo {
+  display: inline-block; /* or block */
+  width: 25px; /* Set initial width to match animation */
+  opacity: 0; /* Set initial opacity to match animation */
   animation: logoAnimation 5s ease forwards;
 }
 
@@ -117,10 +120,6 @@ a:link, a:visited {
     overflow: visible;
   }
 
-  h1 {
-    overflow: visible;
-  }
-
   .nav_links {
     display: flex;
     flex-direction: row;
@@ -147,6 +146,26 @@ a:link, a:visited {
     padding-left: 5px;
   }
 
+  h1{
+    font-size: 2em;
+    text-align: center;
+    line-height: 2;
+    padding: 140px 0px 0px;
+  }
+
+  body > header {
+    overflow: visible;
+    padding: 20px;
+}
+
+/* Ensure h1 is visible and styled */
+  body > header h1 {
+    display: block;
+    font-size: 2rem; /* Adjust font size as needed */
+    color: #222;
+    margin: 0;
+}
+
 }
 
 /* Step 14: Reduced motion preferences */
@@ -163,25 +182,33 @@ a:link, a:visited {
   /* Step 15 & 16: Change font to Arial with Helvetica backup */
   body {
     font-family: Arial, Helvetica, sans-serif;
-    background-image: none;
+    background: none;
+  }
+
+  .logo {
+    width: 200px;
+    opacity: 1;
+    animation: none;
   }
 
   /* Step 17: Adjust spacing for nav and nav_links */
   nav, .nav_links {
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
-    gap: 10px;
+    gap: 160px;
   }
 
   /* Step 18: Pricing class alignment along the bottom */
   .pricing {
     align-items: flex-end;
+    flex-wrap: nowrap;
   }
 
   /* Step 19: Adjust card border and size */
   .card {
     flex-basis: 325px;
-    border: 2px solid #45ADDD;
+    border: 1px solid #45ADDD;
   }
 
   /* Step 20: Hide gallery in print view */
@@ -189,8 +216,17 @@ a:link, a:visited {
     display: none;
   }
 
+  /* Align contents inside ul to the left */
+  .card ul li {
+    text-align: left;
+  }
+
+  .card ul li header h4{
+    text-align: left;
+  }
+
   /* Step 21: Add thumbs up entity to cards */
-  .card::before {
+  .card ul li:nth-child(2)::after {
     content: "👍 ";
     margin-right: 8px;
     color: #FFDD00; /* Optional yellow color if compatible */
